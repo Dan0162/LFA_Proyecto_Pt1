@@ -1,0 +1,31 @@
+if '\t' not in linea:
+
+                seccion_SETS = False
+                seccion_TOKENS = False
+                seccion_ACTIONS = False
+                seccion_ERROR = False
+
+                if linea == 'TOKENS':
+                    seccion_TOKENS = True
+                    secciones[1] = True
+
+                elif linea.startswith('t') or linea.startswith('T'):
+                    print(f"Error de formato en la linea {numero_fila}, se esperaba la palabra 'TOKENS'")
+
+
+                elif linea == 'ACTIONS':
+                    seccion_ACTIONS = True
+                    secciones[2] = True
+
+                elif linea.startswith('a') or linea.startswith('A'):
+                    print(f"Error de formato en la linea {numero_fila}, se esperaba la palabra 'ACTIONS'")
+
+                elif linea == 'ERROR':
+                    seccion_ERROR = True
+                    secciones[3] = True
+
+                elif linea.startswith('e') or linea.startswith('E'):
+                    print(f"Error de formato en la linea {numero_fila}, se esperaba la palabra 'ERROR'")
+
+                else:
+                    print(f"Error de formato en la linea {numero_fila}, se esperaba un titulo de una seccion como 'TOKENS' o 'ACTIONS")

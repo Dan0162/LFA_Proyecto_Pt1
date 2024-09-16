@@ -5,11 +5,12 @@ class validador:
     def dividir_secciones(self, contenido):
         secciones = {}
         patrones = {
-            'SETS': r'SETS\s+(.*?)(?=\bTOKENS\b|\bACTIONS\b|\bERROR\b|$)',
-            'TOKENS': r'TOKENS\s+(.*?)(?=\bACTIONS\b|\bERROR\b|$)',
-            'ACTIONS': r'ACTIONS\s+(.*?)(?=\bERROR\b|$)',
-            'ERROR': r'ERROR\s*=\s*(\d+)\s*'
+            'SETS': r'^\s*SETS\s*$',
+            'TOKENS': r'^\s*TOKENS\s*$',
+            'ACTIONS': r'^\s*ACTIONS\s*$',
+            'ERROR': r'^\s*ERROR\s*$'
         }
+
 # Iterar sobre cada sección y su patrón asociado.
         for seccion, patron in patrones.items():
  # Buscar el patrón en el contenido 
