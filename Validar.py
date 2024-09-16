@@ -1,7 +1,7 @@
 import re
 
 class validador:
-
+ # Definir un diccionario con los patrones de expresiones regulares para cada sección.
     def dividir_secciones(self, contenido):
         secciones = {}
         patrones = {
@@ -10,9 +10,11 @@ class validador:
             'ACTIONS': r'ACTIONS\s+(.*?)(?=\bERROR\b|$)',
             'ERROR': r'ERROR\s*=\s*(\d+)\s*'
         }
-
+# Iterar sobre cada sección y su patrón asociado.
         for seccion, patron in patrones.items():
+ # Buscar el patrón en el contenido 
             match = re.search(patron, contenido, re.DOTALL)
+# Si coincide, se extrae el texto y se limpia de espacios en blanco.
             if match:
                 secciones[seccion] = match.group(1).strip()
 
@@ -21,7 +23,7 @@ class validador:
     @staticmethod
     def validar_sets(contenido_sets):
         # Expresión regular para validar cada SET
-        patron_set = re.compile(r'^(\w+)\s*=\s*((?:CHR\(\d+\)\.\.\w+|[\w\+\(\)\.\-\'\s]+|\'[^\']*\')+)$', re.MULTILINE)
+        patron_set = re.compile(r'^TOKEN\s+\d+\s*=\s*([\'".\w\s\(\)\|\+\*\?]+)$', re.MULTILINE)
         sets = contenido_sets.splitlines()
         if not any(line.strip() for line in sets):
             print("No se encontraron SETS.")
@@ -91,6 +93,7 @@ class validador:
             patron_error = re.compile(r'^ERROR\s*=\s*(\d+)$', re.MULTILINE)
             errores = contenido_error.splitlines()
             if not any(linea.strip() for linea in errores):
+            #Si no encuentra ERROR lanza mensaje
                 print("No se encontraron errores.")
                 return
 
@@ -99,8 +102,10 @@ class validador:
                     match = patron_error.match(linea.strip())
                     if match:
                         error = match.group(1)
+            #Si encuentra algun ERROR imprime mensaje
                         print(f"ERROR encontrado: {error}")
                     else:
+            #Si el formato está mal
                         print(f"Error en el formato de ERROR: {linea.strip()}")
 
             # Asegurarse de que hay al menos un ERROR
