@@ -102,6 +102,17 @@ class Parsed:
                     columna_error = linea_error.find(parte) + 1
                     return f"Error de formato en la fila {numero_fila}, cerca de la columna {columna_error}: se esperaba un carácter dentro de las comillas"
 
+            elif parte.startswith("'") and not parte.endswith("'"):
+
+                columna_error = linea_error.find(parte) + 2
+                return f"Error de formato en la fila {numero_fila}, cerca de la columna {columna_error}: se esperaba una comilla de cierre"
+
+            elif  not parte.startswith("'") and parte.endswith("'"):
+
+                if len(parte) != 3:
+                    columna_error = linea_error.find(parte) + 1
+                    return f"Error de formato en la fila {numero_fila}, cerca de la columna {columna_error}: se esperaba una comilla de apertura"
+
             else:
                 columna_error = linea_error.find(parte) + 1
                 return f"Error de formato en la fila {numero_fila}, cerca de la columna {columna_error}: se esperaba un intervalo válido separado por '..'"
