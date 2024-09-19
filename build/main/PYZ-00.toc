@@ -1,5 +1,4 @@
-('C:\\Users\\Ishai\\Proyectos\\Proyecto Parte 1 '
- 'LyA\\LFA_Proyecto_Pt1\\build\\main\\PYZ-00.pyz',
+('C:\\Users\\Ishai\\Proyectos\\LFA_Proyecto_Pt1\\build\\main\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Users\\Ishai\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_compat_pickle.py',
    'PYMODULE'),
@@ -136,8 +135,7 @@
    'C:\\Users\\Ishai\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\gettext.py',
    'PYMODULE'),
   ('gramatica',
-   'C:\\Users\\Ishai\\Proyectos\\Proyecto Parte 1 '
-   'LyA\\LFA_Proyecto_Pt1\\gramatica.py',
+   'C:\\Users\\Ishai\\Proyectos\\LFA_Proyecto_Pt1\\gramatica.py',
    'PYMODULE'),
   ('gzip',
    'C:\\Users\\Ishai\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\gzip.py',
