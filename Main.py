@@ -75,12 +75,12 @@ def main ():
                         else: #Si no concuerda
                             if linea.startswith('S') | linea.startswith('s'): #Si la cadena iniciaba con la letra 's' o 'S'
                                 #Se asume que el error se encuentra al final de la cadena
-                                columna_error = 2
+                                columna_error = len(linea_error) + 1
                                 print(f"Error de formato en la linea {numero_fila}, cerca de la columna {columna_error}: se esperaba la palabra 'SETS'")
                                 break #Interrumpe la lectura del archivo .txt
 
                             else: #Si no, se asume que la palabra que venía era 'TOKENS'
-                                columna_error = 2
+                                columna_error = len(linea_error) + 1
                                 print(f"Error de formato en la linea {numero_fila}, cerca de la columna {columna_error}: se esperaba la palabra 'TOKENS'")
                                 break
 
@@ -331,6 +331,8 @@ def main ():
         op = input("¿Desea leer otro archivo? Y/N (Y = si / N = no) \n")
 
         if op == "Y":
+
+            os.system('cls')
 
             continue
 
