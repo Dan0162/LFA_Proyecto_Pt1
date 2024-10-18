@@ -10,9 +10,9 @@ def eliminar_espacios(linea):
 # Inicializa la instancia de la clase que manejará la validación de las secciones
 parseo = Parsed()
 
-def main ():
 
-    while(True):
+
+while(True):
 
         #Lista de secciones para llevar un control de qué secciones deben haber ocurrido
         secciones = ["S","T","A","E"]
@@ -348,5 +348,3 @@ def main ():
 
 
 
-if __name__ == "__main__":
-    main()
